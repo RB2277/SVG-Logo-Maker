@@ -1,6 +1,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const shapes = require('./lib/shapes')
+const shape = require('./shapes.js');
+const { Triangle } = require('./lib/shapes.js');
 
 
 const questions = [
@@ -12,7 +13,7 @@ const questions = [
     {
         type: 'input',
         message: 'What color would you like your letters to be?',
-        name: 'lettercolor',
+        name: 'color',
     },
     {
         type: 'list',
@@ -27,8 +28,30 @@ const questions = [
     },
 ]
 
+function createSvg(text, color, shape, shapecolor) {
+    let shape;
+
+    switch(shape) {
+        case 'circle':
+            shape = new Circle(text, color, shapecolor)
+            break;
+        case 'square':
+            shape = new Square(text, color, shapecolor)
+            break;
+         case 'triangle':
+            shape = new Triangle(text, color, shapecolor)
+            break;
+        default:
+            console.log("There was an error creating your shape!")
+    }
+
+    return shape.createLogo()
+}
+
+
 function writeToFile(filename, response) {
-    fs.writeFile(filename, response, (err) => {
+    const logo = createSvg(response.text, response.color, response.shape, response.shapecolor)
+    fs.writeFile(filename, logo, (err) => {
         err ? console.logg(err) : console.log("Your logo has been created!")
     })
 }
