@@ -25,3 +25,20 @@ const questions = [
         name: 'shapecolor',
     },
 ]
+
+function writeToFile(filename, response) {
+    fs.writeFile(filename, response, (err) => {
+        err ? console.logg(err) : console.log("Your logo has been created!")
+    })
+}
+
+function init(){
+    inquirer
+    .prompt(questions)
+    .then((response) => {
+        const fileName = "logo.svg"
+        writeToFile(fileName, response)
+    })
+}
+
+init()
