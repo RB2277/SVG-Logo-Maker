@@ -12,7 +12,7 @@ const questions = [
     },
     {
         type: 'input',
-        message: 'What color would you like your letters to be?',
+        message: 'What color would you like your letters to be? (Color name or Hexadecimal)',
         name: 'color',
     },
     {
@@ -23,7 +23,7 @@ const questions = [
     },
     {
         type: 'input',
-        message: 'What color would you like your shape to be?',
+        message: 'What color would you like your shape to be? (Color name or Hexadecimal)',
         name: 'shapecolor',
     },
 ]
@@ -52,7 +52,7 @@ function createSvg(text, color, logoShape, shapecolor) {
 function writeToFile(filename, response) {
     const logo = createSvg(response.text, response.color, response.shape, response.shapecolor)
     fs.writeFile(filename, logo, (err) => {
-        err ? console.logg(err) : console.log("Your logo has been created!")
+        err ? console.log(err) : console.log("Generated logo.svg")
     })
 }
 
