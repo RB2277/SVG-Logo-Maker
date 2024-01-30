@@ -52,7 +52,7 @@ function createSvg(text, color, logoShape, shapecolor) {
 function writeToFile(filename, response) {
     const logo = createSvg(response.text, response.color, response.shape, response.shapecolor)
     fs.writeFile(filename, logo, (err) => {
-        err ? console.logg(err) : console.log("Your logo has been created!")
+        err ? console.log(err) : console.log("Generated logo.svg")
     })
 }
 
