@@ -16,13 +16,13 @@ This app allows you to create your own customized logo where the user can select
 
 ## Installation
 
-Clone the repository. Run npm install within the console to install the correct dependencies required. Once that is done, you can run "node index.js" within the console to initiate the app. 
+Clone the repository. Run npm install within the console to install the correct dependencies required. Once that is done, you can run "node index.js" within the console to initiate the app. Additionally you can run npm test to make use of the jest package.
 
 ## Usage
 
 For a walkthrough video on using the app, please visit this link! 
 
-placeholder_text
+https://drive.google.com/file/d/1OOwEZ9D0srM1OCuQb35Psv3AlrsO--Fh/view?usp=sharing
 
 ![Example Image of the site](./examples/exampleImage.png)
 
