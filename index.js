@@ -28,7 +28,7 @@ const questions = [
         name: 'shapecolor',
     },
 ]
-//Function that takes user input from the inquirer array and then calls the createLogo function to return a logo
+//Function that takes user input from the inquirer array and then calls the render function to return a logo
 function createSvg(text, color, logoShape, shapecolor) {
     let requestedLogo;
 
@@ -46,7 +46,7 @@ function createSvg(text, color, logoShape, shapecolor) {
             console.log("There was an error creating your shape!")
     }
 
-    return requestedLogo.createLogo()
+    return requestedLogo.render()
 }
 
 //Function that writes the logo.svg file after it has received it from the createSvg function
