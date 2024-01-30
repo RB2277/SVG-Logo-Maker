@@ -12,7 +12,7 @@ const questions = [
     },
     {
         type: 'input',
-        message: 'What color would you like your letters to be?',
+        message: 'What color would you like your letters to be? (Color name or Hexadecimal)',
         name: 'color',
     },
     {
@@ -23,7 +23,7 @@ const questions = [
     },
     {
         type: 'input',
-        message: 'What color would you like your shape to be?',
+        message: 'What color would you like your shape to be? (Color name or Hexadecimal)',
         name: 'shapecolor',
     },
 ]
