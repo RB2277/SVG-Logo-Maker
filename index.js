@@ -1,9 +1,10 @@
+//This includes the required packages for the application
 const inquirer = require('inquirer');
 const fs = require('fs');
 const shape = require('./lib/shapes')
 
 
-
+//Array of inquirer questions for the user to answer
 const questions = [
     {
         type: 'input',
@@ -27,7 +28,7 @@ const questions = [
         name: 'shapecolor',
     },
 ]
-
+//Function that takes user input from the inquirer array and then calls the createLogo function to return a logo
 function createSvg(text, color, logoShape, shapecolor) {
     let requestedLogo;
 
@@ -48,7 +49,7 @@ function createSvg(text, color, logoShape, shapecolor) {
     return requestedLogo.createLogo()
 }
 
-
+//Function that writes the logo.svg file after it has received it from the createSvg function
 function writeToFile(filename, response) {
     const logo = createSvg(response.text, response.color, response.shape, response.shapecolor)
     fs.writeFile(filename, logo, (err) => {
@@ -56,6 +57,7 @@ function writeToFile(filename, response) {
     })
 }
 
+//Function that uses inquirer to ask the questions array
 function init(){
     inquirer
     .prompt(questions)
@@ -64,5 +66,5 @@ function init(){
         writeToFile(fileName, response)
     })
 }
-
+//Calls the init function above
 init()
