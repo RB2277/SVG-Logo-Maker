@@ -1,7 +1,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const shape = require('./shapes.js');
-const { Triangle } = require('./lib/shapes.js');
+const shape = require('./lib/shapes')
+
 
 
 const questions = [
@@ -28,24 +28,24 @@ const questions = [
     },
 ]
 
-function createSvg(text, color, shape, shapecolor) {
-    let shape;
+function createSvg(text, color, logoShape, shapecolor) {
+    let requestedLogo;
 
-    switch(shape) {
+    switch(logoShape) {
         case 'circle':
-            shape = new Circle(text, color, shapecolor)
+            requestedLogo = new shape.Circle(text, color, shapecolor)
             break;
         case 'square':
-            shape = new Square(text, color, shapecolor)
+            requestedLogo = new shape.Square(text, color, shapecolor)
             break;
          case 'triangle':
-            shape = new Triangle(text, color, shapecolor)
+            requestedLogo = new shape.Triangle(text, color, shapecolor)
             break;
         default:
             console.log("There was an error creating your shape!")
     }
 
-    return shape.createLogo()
+    return requestedLogo.createLogo()
 }
 
 
